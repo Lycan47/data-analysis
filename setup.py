@@ -9,5 +9,4 @@ setup(
     install_requires=['PyQt5', 'pandas', 'sqlalchemy', 'nltk', 'numpy', 'jupyter', 'python-twitter'],
     entry_points={},
     extra_require={}
-
 )
