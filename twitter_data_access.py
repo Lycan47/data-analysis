@@ -1,4 +1,5 @@
-from tweepy import OAuthHandler, Stream
+import json
+from tweepy import OAuthHandler, Stream, API
 from tweepy.streaming import StreamListener
 
 consumer_key ='AxOaYpOn28fJjYomZeW89ZNgp'
@@ -29,5 +30,12 @@ def print_to_terminal():
     languages = ('en',)
     stream.sample()
 
+def pull_down_tweets(screen_name):
+    api = API(auth)
+    tweets = api.user_timeline(screen_name =screen_name, count =200)
+    for tweet in tweets:
+        print(json.dumps(tweet._json, indent=4))
+
 if __name__ == '__main__':
-    print_to_terminal()
+    #print_to_terminal()
+    pull_down_tweets(auth.username)
